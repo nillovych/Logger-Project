@@ -13,8 +13,8 @@ class CfgFileOption:
 
     def getDestinations(self):
         with open('cfg.txt') as cfg:
-            destinations = cfg.read().splitlines()
-        return destinations
+            self.destinations = cfg.read().splitlines()
+        return self.destinations
 
 
 class ConsoleInputOption:
@@ -22,10 +22,10 @@ class ConsoleInputOption:
         pass
 
     def getDestinations(self):
-        destinations = []
+        self.destinations = []
         answer = ''
         print("Enter 'end', if you want to stop")
         while answer != 'end':
             answer = str(input("Path to file: "))
-            destinations.append(answer)
-        return destinations
+            self.destinations.append(answer)
+        return self.destinations
