@@ -1,5 +1,6 @@
-from output_handlers import Console, Csv, Txt
 import os
+
+from output_handlers import Console, Csv, Txt
 
 
 class Connector:
@@ -22,6 +23,7 @@ class Connector:
         with open('cfg.txt') as cfg:
             return cfg.read().splitlines()
 
+
 class PreparePath:
     def __init__(self, type, fullName, inputValue):
 
@@ -36,7 +38,7 @@ class PreparePath:
                 Csv.output(self.inputValue, filePath, fileName)
 
         else:
-            print(f'Incorrect path "{self.filePath}", file <{self.fileName}> cannot be saved!')
+            print(f'Incorrect path "{self.filePath}", file <{self.fileName}> cannot be saved! ')
 
     def pathCorrection(self, fullTitle):
         last_slash_pos = fullTitle.rfind('/')
@@ -58,7 +60,8 @@ class PreparePath:
             elif not os.path.exists(self.directoryPath):
                 os.makedirs(self.directoryPath)
                 return True
-            else: return True
+            else:
+                return True
 
         except OSError:
             return False
