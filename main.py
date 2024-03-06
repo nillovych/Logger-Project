@@ -1,19 +1,14 @@
 from output_handlers import CsvWriter, TxtWriter, ConsoleWriter
+from setup_options import CfgFileOption, ConsoleInputOption
 
-answer1 = int(input('Do you want to import destinations from cfg.txt(Enter 0) or write your own(Enter 1): '))
+answer = int(input('Do you want to import destinations from cfg.txt(Enter 0) or write your own(Enter 1): '))
 
-if answer1 == 0:
-    with open('cfg.txt') as cfg:
-        destinations = cfg.read().splitlines()
-elif answer1 == 1:
-    destinations = []
-    answer2 = ''
-    print("Enter 'end', if you want to stop")
-    while answer2 != 'end':
-        answer2 = str(input("Path to file: "))
-        destinations.append(answer2)
-else:
-    print('Choices are 0 and 1')
+if answer == 0:
+    choosen_option = CfgFileOption()
+elif answer == 1:
+    choosen_option = ConsoleInputOption()
+
+destinations = choosen_option.getDestinations()
 
 writers = []
 
@@ -30,4 +25,3 @@ while True:
 
     for writer in writers:
         writer.write(userInput)
-
