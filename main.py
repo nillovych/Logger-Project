@@ -1,27 +1,29 @@
 from output_handlers import CsvWriter, TxtWriter, ConsoleWriter
-from setup_options import CfgFileOption, ConsoleInputOption
+from setup_options import Option
 
-answer = int(input('Do you want to import destinations from cfg.txt(Enter 0) or write your own(Enter 1): '))
 
-if answer == 0:
-    choosen_option = CfgFileOption()
-elif answer == 1:
-    choosen_option = ConsoleInputOption()
+class Logger:
+    def __init__(self, option: Option):
 
-destinations = choosen_option.getDestinations()
+        self.writers = self._getWriters(option)
 
-writers = []
+    def log(self, user_input: str):
 
-for destination in destinations:
-    if destination[-3:] == 'txt':
-        writers.append(TxtWriter(destination))
-    elif destination[-3:] == 'csv':
-        writers.append(CsvWriter(destination))
-    elif destination == 'console':
-        writers.append(ConsoleWriter(destination))
+        for writer in self.writers:
+            writer.write(user_input)
 
-while True:
-    userInput = input('Enter data, you want to proceed: ')
+    def _getWriters(self, option: Option):
 
-    for writer in writers:
-        writer.write(userInput)
+        writers = []
+
+        destinations = option.getDestinations()
+
+        for destination in destinations:
+            if destination[-3:] == 'txt':
+                writers.append(TxtWriter(destination))
+            elif destination[-3:] == 'csv':
+                writers.append(CsvWriter(destination))
+            elif destination == 'console':
+                writers.append(ConsoleWriter(destination))
+
+        return writers
