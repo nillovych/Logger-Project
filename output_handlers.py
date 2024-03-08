@@ -8,7 +8,7 @@ class Writer(ABC):
         pass
 
 
-class FileWriter:
+class FileWriter(Writer):
     def __init__(self, path):
         self.path = path
 
@@ -33,7 +33,7 @@ class CsvWriter(FileWriter):
             destination.write(text + ',' + '\n')
 
 
-class ConsoleWriter:
+class ConsoleWriter(Writer):
     def __init__(self, path):
         self.path = path
 

@@ -7,7 +7,7 @@ class Option(ABC):
         pass
 
 
-class CfgFileOption:
+class CfgFileOption(Option):
     def __init__(self):
         pass
 
@@ -17,7 +17,7 @@ class CfgFileOption:
         return self.destinations
 
 
-class ConsoleInputOption:
+class ConsoleInputOption(Option):
     def __init__(self):
         pass
 
