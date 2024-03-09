@@ -1,5 +1,5 @@
 file.txt
-file.csv
-exampleDirectory/textFolder2/another-file.txt
+another_file.csv
+exampleDirectory/textFolder2/file.txt
 textFolder1/another-file.csv
 console
