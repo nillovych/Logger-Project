@@ -1,6 +1,18 @@
-The program should take user input from console and log to different destination, described in "cfg.txt"
+# Logger
 
-There are few types of destinations:
-.txt - append log as new line
-.csv - append log using separator (,)
-console - log to console 
+Console Logger is a program designed to take user input from the console and log it to different destinations, as specified in the configuration file "cfg.txt".
+
+## Functionality
+
+The program supports logging to different destinations based on the configuration specified in "cfg.txt". Supported destination types include:
+
+- **.txt**: Append log as a new line in a text file.
+- **.csv**: Append log using comma (,) as a separator in a CSV file.
+- **console**: Log to the console.
+
+## Configuration
+
+The configuration file "cfg.txt" specifies the destination type where the logs will be recorded. Each line in the configuration file represents a separate destination type.
+
+Example content of "cfg.txt":
+
