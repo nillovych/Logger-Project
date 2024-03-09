@@ -1,6 +1,6 @@
 # Logger
 
-Logger is a program designed to take user input from the console and log it to different destinations, as specified in the configuration file "cfg.txt".
+Logger is a program designed to take user input from the console and log it to different destinations, specified in the configuration file "cfg.txt" or entered from console.
 
 ## Functionality
 
