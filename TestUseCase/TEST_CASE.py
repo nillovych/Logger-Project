@@ -1,4 +1,4 @@
-from main import Logger
+from logger import Logger
 from setup_options import CfgFileOption
 
 option = CfgFileOption()
